@@ -1,3 +1,6 @@
+#https://www.canadacomputers.com/search/results_details.php?language=en&keywords=graphics+card
+#https://www.youtube.com/watch?v=XQgXKtPSzUI&feature=emb_logo
+
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 
