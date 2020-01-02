@@ -19,22 +19,22 @@ containers = page_soup.findAll("div", {"class":"row mx-0"})
 
 #Loop to read info for all products
 for container in containers:
-	#Read product title
+	#Product name
 	product_name = container.a.div.img["alt"]
 
-	#Read brand name from image title
-	brand_container = container.findAll("div", {"class":"pq-img-manu_logo_box"})
-	brand = brand_container[0].img["alt"]
-
-#Below needs to be reworked as not all products have sale prices, throwing errors. If else statements are ideal (I think...)
-
-	#Price only if sale
+	#Product sale price
 	price_sale_container = container.findAll("span", {"class":"text-danger d-block mb-0 pq-hdr-product_price line-height"})
-	price_sale = price_sale_container[0].strong.text
 
-	#Price normal
-	price_container = container.findAll("span", {"class":"d-block mb-0 pq-hdr-product_price line-height"})
-	price = price_container[0].strong.text
+	if price_sale_container == [] : price_sale = "Not on sale"
+	else: price_sale = price_sale_container[0].strong.text
+
+	print("product_name: " + product_name)
+	print("sale_price:  " + price_sale)
+
+	#Product normal price
+
+	#Product brand
+
 
 	""" Classes for sale price vs normal price
 	sale price class = text-danger d-block mb-0 pq-hdr-product_price line-height
@@ -43,7 +43,8 @@ for container in containers:
 	"""
 
 
+#To get more products, triggerScroll() will be needed?
 print("product_name: " + product_name)
-print("brand:  " + brand)
+print("brand:  " + brand) #Not implemented yet
 print("price_sale:  " + price_sale)
-print("price:  " + price)
+print("price:  " + price) #Not implemented yet
