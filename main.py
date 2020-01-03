@@ -17,6 +17,9 @@ page_soup = soup(page_html, "html.parser")
 #Grabs each product
 containers = page_soup.findAll("div", {"class":"row mx-0"})
 
+#Use in terminal when debugging a single container
+#container = containers[1]
+
 #Loop to read info for all products
 for container in containers:
 	#Product name
@@ -28,10 +31,15 @@ for container in containers:
 	if price_sale_container == [] : price_sale = "Not on sale"
 	else: price_sale = price_sale_container[0].strong.text
 
-	print("product_name: " + product_name)
-	print("sale_price:  " + price_sale)
-
 	#Product normal price
+	price_normal_container = container.findAll("span", {"class":"d-block mb-0 pq-hdr-product_price line-height"})
+
+	if price_normal_container == [] : price_normal = price_sale
+	else: price_normal = price_normal_container[0].strong.text
+
+	print("product_name: " + product_name)
+	print("price_sale:  " + price_sale)
+	print("price_normal:  " + price_normal)
 
 	#Product brand
 
