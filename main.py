@@ -41,8 +41,9 @@ for container in containers:
 	print("price_sale:  " + price_sale)
 	print("price_normal:  " + price_normal)
 
-	#Product brand
+	#Discount amount
 
+	#Product brand
 
 	""" Classes for sale price vs normal price
 	sale price class = text-danger d-block mb-0 pq-hdr-product_price line-height

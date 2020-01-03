@@ -25,5 +25,13 @@ for container in containers:
 	if price_sale_container == [] : price_sale = "Not on sale"
 	else: price_sale = price_sale_container[0].strong.text
 
+	#Product normal price
+	price_normal_container = container.findAll("span", {"class":"d-block mb-0 pq-hdr-product_price line-height"})
+
+	if price_normal_container == [] : price_normal = price_sale
+	else: price_normal = price_normal_container[0].strong.text
+	
+
 	print("product_name: " + product_name)
+	print("price_normal:  " + price_normal)
 	print("sale_price:  " + price_sale)
