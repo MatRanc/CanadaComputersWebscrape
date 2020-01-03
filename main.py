@@ -38,11 +38,17 @@ for container in containers:
 	if price_sale_container == [] : price_sale = "Not on sale"
 	else: price_sale = price_sale_container[0].strong.text
 
-	#Product normal price
+	#Product normal price (when not on sale)
 	price_normal_container = container.findAll("span", {"class":"d-block mb-0 pq-hdr-product_price line-height"})
 
 	if price_normal_container == [] : price_normal = "On sale" #Todo: make it actually read normal price
 	else: price_normal = price_normal_container[0].strong.text
+
+	#Product normal price (when on sale)
+	
+	price_normal_container_actual = container.div.findAll("div", {"class":"px-0 col-12 productInfoSearch pt-2"})
+	price_normal_container_actual_2 = price_normal_container_actual[0].findAll("span", {"class":"line-height"})
+	price_normal_actual = price_normal_container_actual_2[0].strong.text
 
 	#Discount amount
 
@@ -55,7 +61,7 @@ for container in containers:
 	print("product_name: " + product_name)
 	print("price_sale:  " + price_sale)
 	print("price_normal:  " + price_normal)
-	print("brand:  " + brand)
+	print("brand:  " + brand)	
 	print("\n") #Adds a new line to make output neater
 
 
