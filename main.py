@@ -7,15 +7,13 @@ Implement infinate scroll
 https://stackoverflow.com/questions/37207959/how-to-scrape-all-contents-from-infinite-scroll-website-scrapy
 
 Todo:
-Actually read normal price when on sale
-
-want to list
-price, if on sale or not, brand, name, discount (money and percent)
+Export to csv
+Add percent discount
 """
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 
-my_url = 'https://www.canadacomputers.com/search/results_details.php?language=en&keywords=graphics+card'
+my_url = "https://www.canadacomputers.com/search/results_details.php?language=en&keywords=gaming+laptop"
 
 #Opens connection, grabs page, then closes
 uClient = uReq(my_url)
@@ -57,9 +55,9 @@ for container in containers:
 	else: price_normal = price_normal_container[0].strong.text
 
 	#Discount amount
-
 	if price_sale_container == [] : discount_amount = 0
-	else: discount_amount = float(price_normal_on_sale.strip("$")) - float(price_sale.strip("$")) 
+														#Replaces commas and dollar signs with nothing so it can be converted to a float
+	else: discount_amount = float(price_normal_on_sale.replace(",", "").replace("$", "")) - float(price_sale.replace(",", "").replace("$", "")) 
 
 	#Product brand
 	brand_container = container.div.findAll("div", {"class":"pq-img-manu_logo_box"})
