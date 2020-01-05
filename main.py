@@ -56,8 +56,7 @@ for container in containers:
 
 	#Discount amount
 	if price_sale_container == [] : discount_amount = 0
-														#Replaces commas and dollar signs with nothing so it can be converted to a float
-	else: discount_amount = float(price_normal_on_sale.replace(",", "").replace("$", "")) - float(price_sale.replace(",", "").replace("$", "")) 
+	else: discount_amount = float(price_normal_on_sale.replace(",", "").replace("$", "")) - float(price_sale.replace(",", "").replace("$", ""))		#Replaces commas and dollar signs with nothing so it can be converted to a float
 
 	#Product brand
 	brand_container = container.div.findAll("div", {"class":"pq-img-manu_logo_box"})
