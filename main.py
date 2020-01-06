@@ -1,15 +1,3 @@
-"""
-Links:
-https://www.canadacomputers.com/search/results_details.php?language=en&keywords=graphics+card
-https://www.youtube.com/watch?v=XQgXKtPSzUI&feature=emb_logo
-
-Implement infinate scroll
-https://stackoverflow.com/questions/37207959/how-to-scrape-all-contents-from-infinite-scroll-website-scrapy
-
-Todo:
-Export to csv
-Add percent discount
-"""
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 
@@ -71,3 +59,16 @@ for container in containers:
 	print("\n") #Adds a new line to make output neater
 
 #To get more products, triggerScroll() will be needed?
+
+"""
+Links:
+https://www.canadacomputers.com/search/results_details.php?language=en&keywords=graphics+card
+https://www.youtube.com/watch?v=XQgXKtPSzUI&feature=emb_logo
+
+Implement infinate scroll
+https://stackoverflow.com/questions/37207959/how-to-scrape-all-contents-from-infinite-scroll-website-scrapy
+
+Todo:
+Export to csv
+Add percent discount
+"""
